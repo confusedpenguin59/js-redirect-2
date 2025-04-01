@@ -25,7 +25,17 @@ function myFunction() {
     location.replace("https://www.w3schools.com");
 }
 
-window.addEventListener('load', queryParams, false);
+function newFunction() {
+    // Construct URLSearchParams object instance from current URL querystring.
+    var queryParams = new URLSearchParams(window.location.search);
+ 
+    // Set new or modify existing parameter value. 
+    queryParams.set("myParam", "myValue");
+ 
+    location.replace("?"+queryParams.toString());
+}
+
+window.addEventListener('load', newFunction, false);
 
 </script>
     
