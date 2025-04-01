@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Redirect to a Webpage</h2>
+
+<p>The replace() method replaces the current document with a new one:</p>
+
+<button onclick="myFunction()">Replace document</button>
+<button onclick="queryParams()">Replace Query Params</button>
+    
+<script>
+function queryParams() {
+    // Construct URLSearchParams object instance from current URL querystring.
+    var queryParams = new URLSearchParams(window.location.search);
+ 
+    // Set new or modify existing parameter value. 
+    queryParams.set("myParam", "myValue");
+ 
+    // Replace current querystring with the new one.
+    history.replaceState(null, null, "?"+queryParams.toString());
+}
+
+function myFunction() {
+    location.replace("https://www.w3schools.com");
+}
+</script>
+
+</body>
+</html>
